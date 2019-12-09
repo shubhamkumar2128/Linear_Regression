@@ -7,6 +7,8 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error
 
 
 # In[299]:
@@ -74,6 +76,14 @@ for i in range(n):
 ans=up/ny
 ans
 
-    
+
+#using sklearn lib
+
+point_x=point_x.reshape((n,1))
+reg=LinearRegression()
+reg=reg.fit(point_x,point_y)
+y_pred=reg.predict(point_x)
+r2=reg.score(point_x,point_y)
+print(r2)
     
 
